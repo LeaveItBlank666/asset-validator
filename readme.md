@@ -13,7 +13,7 @@ endpoints = ['/api/v0/s3/example','/api/v0/storage','/api/v0/oauth/token','/api/
 To run the program:
 
 ```bash
-python3 proxy.py
+python3 main.py
 ```
 
 ## Backlog
