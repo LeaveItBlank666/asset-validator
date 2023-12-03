@@ -1,3 +1,4 @@
+import sys
 import requests
 
 proxy = {
@@ -26,11 +27,14 @@ baseurl = "https://catfact.ninja/"
 
 # Read endpoints from file
 endpoints = []
-fh = open("entrypoints.txt", "r")
-for line in fh.readlines():
-    endpoints.append(line.rstrip())
-fh.close()
-print(endpoints)
+try:
+    fh = open("entrypoints.txt132123123", "r")
+    for line in fh.readlines():
+        endpoints.append(line.rstrip())
+    fh.close()
+except FileNotFoundError as error:
+    print(error)
+    exit()
 
 for e in endpoints:
     url = baseurl + e
