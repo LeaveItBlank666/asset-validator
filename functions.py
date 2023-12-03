@@ -1,3 +1,5 @@
+import argparse
+
 def readEndpoints(filename):
     endpoints = []
     try:
@@ -10,3 +12,9 @@ def readEndpoints(filename):
     except FileNotFoundError as error:
         print(error)
     return []
+
+def readCliArguments():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("baseurl", help="The base URL of the API")
+    parser.add_argument("-v", "--verbose", help="increase output verbosity", action="store_true")
+    return parser.parse_args()

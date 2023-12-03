@@ -1,14 +1,9 @@
 import sys
 import requests
-import argparse
-from functions import readEndpoints
+from functions import readEndpoints, readCliArguments
 
 # Parse console arguments
-parser = argparse.ArgumentParser()
-parser.add_argument("baseurl", help="The base URL of the API")
-parser.add_argument("-v", "--verbose", help="increase output verbosity", action="store_true")
-args = parser.parse_args()
-
+args = readCliArguments()
 if args.verbose:
     print("Running scan on: " + args.baseurl)
 
@@ -32,7 +27,6 @@ verbs = [
     "LOCK",
     "UNLOCK"
 ]
-baseurl = args.baseurl
 
 # Read endpoints from file
 endpoints = readEndpoints("endpoints.txt")
@@ -41,10 +35,11 @@ if not endpoints:
 
 # Access all endpoints with all HTTP verbs
 for e in endpoints:
-    url = baseurl + e
+    url = args.baseurl + e
 
     for v in verbs:
-        print(f"Trying '{v}: {url}'...")
+        if args.verbose:
+            print(f"Trying '{v}: {url}'...")
 
         try:
             req = requests.request(
