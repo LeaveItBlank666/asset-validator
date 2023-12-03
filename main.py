@@ -1,6 +1,11 @@
 import sys
 import requests
-from functions import readEndpoints
+from functions import readEndpoints, readCliArguments
+
+# Parse console arguments
+args = readCliArguments()
+if args.verbose:
+    print("Running scan on: " + args.baseurl)
 
 proxy = {
     "http":"http://127.0.0.1:8080",
@@ -22,7 +27,6 @@ verbs = [
     "LOCK",
     "UNLOCK"
 ]
-baseurl = "https://catfact.ninja/"
 
 # Read endpoints from file
 endpoints = readEndpoints("endpoints.txt")
@@ -31,10 +35,11 @@ if not endpoints:
 
 # Access all endpoints with all HTTP verbs
 for e in endpoints:
-    url = baseurl + e
+    url = args.baseurl + e
 
     for v in verbs:
-        print(f"Trying '{v}: {url}'...")
+        if args.verbose:
+            print(f"Trying '{v}: {url}'...")
 
         try:
             req = requests.request(

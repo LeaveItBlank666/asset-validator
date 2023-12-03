@@ -3,22 +3,24 @@ Validate API credentials and route traffic through intercepting proxy on `127.0.
 
 ## Usage
 
-Update `baseurl` with the root of an API and `endpoints.txt` with a list of endpoints as follows:
+Provide the `baseurl` as a CLI argument and create a file named `endpoints.txt` with a list of endpoints.
 
-```python
-baseurl = "https://example"
-```
-
-To run the program:
 
 ```bash
-python3 main.py
+usage: main.py [-h] [-v] baseurl
+
+positional arguments:
+  baseurl        The base URL of the API
+
+options:
+  -h, --help     show this help message and exit
+  -v, --verbose  increase output verbosity
 ```
 
 ## Backlog
 ### 1.1.0 - Improve program
  - ~~Endpoint should be read from a file~~
- - Baseurl must be past as a CLI argument
+ - ~~Baseurl must be past as a CLI argument~~
  - Pass file with headers to be used
  - Optional: Pass custom proxy
 ### 1.2.0 - Validate endpoints
