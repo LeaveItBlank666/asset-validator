@@ -17,7 +17,7 @@ python3 main.py
 
 ## Backlog
 ### 1.1.0 - Improve program
- - Endpoint should be read from a file
+ - ~~Endpoint should be read from a file~~
  - Baseurl must be past as a CLI argument
  - Pass file with headers to be used
  - Optional: Pass custom proxy
