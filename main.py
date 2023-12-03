@@ -1,6 +1,16 @@
 import sys
 import requests
+import argparse
 from functions import readEndpoints
+
+# Parse console arguments
+parser = argparse.ArgumentParser()
+parser.add_argument("baseurl", help="The base URL of the API")
+parser.add_argument("-v", "--verbose", help="increase output verbosity", action="store_true")
+args = parser.parse_args()
+
+if args.verbose:
+    print("Running scan on: " + args.baseurl)
 
 proxy = {
     "http":"http://127.0.0.1:8080",
@@ -22,7 +32,7 @@ verbs = [
     "LOCK",
     "UNLOCK"
 ]
-baseurl = "https://catfact.ninja/"
+baseurl = args.baseurl
 
 # Read endpoints from file
 endpoints = readEndpoints("endpoints.txt")
