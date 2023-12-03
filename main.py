@@ -1,5 +1,6 @@
 import sys
 import requests
+from functions import readEndpoints
 
 proxy = {
     "http":"http://127.0.0.1:8080",
@@ -11,7 +12,6 @@ headers = {
     "Accept-Language": "en-US,en;q=0.5",
     "Accept-Encoding": "gzip, deflate, br",
 }
-
 verbs = [
     "HEAD",
     "GET",
@@ -22,20 +22,14 @@ verbs = [
     "LOCK",
     "UNLOCK"
 ]
-
 baseurl = "https://catfact.ninja/"
 
 # Read endpoints from file
-endpoints = []
-try:
-    fh = open("entrypoints.txt132123123", "r")
-    for line in fh.readlines():
-        endpoints.append(line.rstrip())
-    fh.close()
-except FileNotFoundError as error:
-    print(error)
-    exit()
+endpoints = readEndpoints("endpoints.txt")
+if not endpoints:
+    sys.exit()
 
+# Access all endpoints with all HTTP verbs
 for e in endpoints:
     url = baseurl + e
 
