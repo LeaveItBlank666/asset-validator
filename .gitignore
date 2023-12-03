@@ -1,4 +1,7 @@
-entrypoints.sample.txt
+# Ignore produyction endry points
+entrypoints.txt
+
+# Ignore project folder
 .idea/
 # Byte-compiled / optimized / DLL files
 __pycache__/
