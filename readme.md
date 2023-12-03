@@ -15,3 +15,20 @@ To run the program:
 ```bash
 python3 proxy.py
 ```
+
+## Backlog
+### 1.1.0 - Improve program
+ - Endpoint should be read from a file
+ - Baseurl must be past as a CLI argument
+ - Pass file with headers to be used
+ - Optional: Pass custom proxy
+### 1.2.0 - Validate endpoints
+ - Make proxy use optional
+ - Debug mode (we don't want to be reliant on a proxy)
+ - Store debug output to file 1.3.0
+### 1.3.0 - Validate endpoints
+ - Check all endpoints with & without authorization
+ - Update report
+### 1.4.0 - Add OpenAPI/Swagger support
+ - Support OpenApi
+ - Support Swagger
