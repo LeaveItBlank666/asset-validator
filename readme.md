@@ -8,7 +8,7 @@ Provide the `baseurl` as a CLI argument and create a file named `endpoints.txt` 
 
 ```bash
 usage: main.py [-h] [-v] baseurl
-
+Example: python3 main.py https://google.com --headersfile example-headers.json
 positional arguments:
   baseurl        The base URL of the API
 
