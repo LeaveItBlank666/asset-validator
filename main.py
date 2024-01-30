@@ -1,5 +1,5 @@
 import sys
-import json  # Import the json module for handling JSON files
+import json
 import requests
 from functions import readEndpoints, readCliArguments
 
