@@ -15,6 +15,7 @@ def readEndpoints(filename):
 
 def readCliArguments():
     parser = argparse.ArgumentParser()
-    parser.add_argument("baseurl", help="The base URL of the API")
+    parser.add_argument("Url", help="The base URL of the API")
     parser.add_argument("-v", "--verbose", help="increase output verbosity", action="store_true")
+    parser.add_argument("--headersfile", help="JSON file containing custom headers", default="xyz")
     return parser.parse_args()

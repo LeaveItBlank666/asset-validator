@@ -21,7 +21,7 @@ options:
 ### 1.1.0 - Improve program
  - ~~Endpoint should be read from a file~~
  - ~~Baseurl must be past as a CLI argument~~
- - Pass file with headers to be used
+ - ~~Pass file with headers to be used~~
  - Optional: Pass custom proxy
 ### 1.2.0 - Validate endpoints
  - Make proxy use optional
